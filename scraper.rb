@@ -27,10 +27,9 @@ end
 
 def scrape_list(url)
   browser.visit(url)
-  option_index = 1
-  loop do
+  option_count = browser.find_all('.search-box select option').size - 1
+  1.upto(option_count) do |option_index|
     option = browser.find_all('.search-box select option')[option_index]
-    break unless option
     id = option.value
     name = option.text
     option.select_option
