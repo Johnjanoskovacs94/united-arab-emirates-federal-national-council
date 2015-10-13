@@ -10,7 +10,7 @@ class String
 end
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
+  Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60, debug: true)
 end
 
 def browser
