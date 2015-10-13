@@ -30,6 +30,11 @@ def scrape_list(url)
   browser.visit(url)
   options = browser.find_all('.search-box select option').drop(1).map { |o| [o.value, o.text] }
 
+  if options.length == 0
+    puts browser.html
+    abort "Failed to find list of people"
+  end
+
   puts "Found #{options.length} people"
   options.each do |option|
     id, name = option
