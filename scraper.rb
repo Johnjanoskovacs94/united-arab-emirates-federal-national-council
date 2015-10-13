@@ -28,15 +28,15 @@ end
 
 def scrape_list(url)
   browser.visit(url)
-  option_count = browser.find_all('.search-box select option').size - 1
-  1.upto(option_count) do |option_index|
-    option = browser.find_all('.search-box select option')[option_index]
-    id = option.value
-    name = option.text
-    option.select_option
+  options = browser.find_all('.search-box select option').drop(1).map { |o| [o.value, o.text] }
+
+  puts "Found #{options.length} people"
+  options.each do |option|
+    id, name = option
+    puts "Scraping #{name}"
+    browser.select(name, from: 'ctl00_main_g_214c5390_2e7d_43ff_a733_fb5b642fb7be_ctl00_ddlMember')
     wait_for_name(name)
     scrape_person(browser.html, id, url)
-    option_index += 1
   end
 end
 
