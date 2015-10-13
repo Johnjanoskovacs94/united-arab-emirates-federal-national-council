@@ -47,8 +47,8 @@ def scrape_person(html, id, source_url)
   name_en = table.xpath('.//tr[2]/td[3]').text.tidy
   person = {
     id: id,
-    name_en: name_en,
-    name_ar: name_ar,
+    name__en: name_en,
+    name__ar: name_ar,
     name: name_en || name_ar,
     email: table.xpath('.//tr[3]/td[2]').text.tidy,
     photo: table.xpath('.//tr[4]/td[2]/img')[0]['src'],
