@@ -19,6 +19,7 @@ end
 
 def wait_for_name(name)
   loop do
+    puts "Waiting for #{name}"
     table = browser.find_all('.article-box table')[1]
     break if table && table.text.include?(name)
     sleep 1
