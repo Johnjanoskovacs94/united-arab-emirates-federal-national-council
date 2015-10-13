@@ -59,4 +59,12 @@ def scrape_person(html, id, source_url)
   ScraperWiki.save_sqlite([:id], person)
 end
 
+term = {
+  id: 2011,
+  name: '2011–2015',
+  start_date: '2011',
+  end_date: '2015'
+}
+ScraperWiki.save_sqlite([:id], term, 'terms')
+
 scrape_list('https://www.almajles.gov.ae/MembersProfiles/Pages/MemProfile.aspx')
