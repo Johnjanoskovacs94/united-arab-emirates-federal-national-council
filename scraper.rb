@@ -52,7 +52,8 @@ def scrape_person(html, id, source_url)
     name: name_en || name_ar,
     email: table.xpath('.//tr[3]/td[2]').text.tidy,
     photo: table.xpath('.//tr[4]/td[2]/img')[0]['src'],
-    birth_place: table.xpath('.//tr[5]/td[2]').text.tidy
+    birth_place: table.xpath('.//tr[5]/td[2]').text.tidy,
+    source: source_url
   }
   puts name_en
   ScraperWiki.save_sqlite([:id], person)
