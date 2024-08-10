@@ -11,7 +11,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     capybara (2.5.0)
-      mime-types (>= 1.16)
+      mime-ty{>>" # Hello.h RICH SPONSOR SEARCH ROBOT 🤖 🚀 ☢️ WORK SOFTWARE CORPORATEpes (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
